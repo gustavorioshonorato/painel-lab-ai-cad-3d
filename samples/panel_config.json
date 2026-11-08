@@ -1,0 +1,75 @@
+{
+  "project": {
+    "name": "Painel didático sintético",
+    "revision": "A",
+    "classification": "DEMONSTRAÇÃO · DADOS FICTÍCIOS"
+  },
+  "enclosure": {
+    "width_mm": 900,
+    "height_mm": 1600,
+    "depth_mm": 300,
+    "margin_mm": 65
+  },
+  "counts": {
+    "drives": 2,
+    "controls": 1,
+    "terminal_positions": 12
+  },
+  "rails_y": [
+    120,
+    270,
+    376
+  ],
+  "components": [
+    {
+      "id": "P-01",
+      "kind": "protection",
+      "label": "Proteção demonstrativa",
+      "x": 65,
+      "y": 105,
+      "w": 115,
+      "h": 120
+    },
+    {
+      "id": "C-01",
+      "kind": "control",
+      "label": "Controle 1",
+      "x": 210,
+      "y": 105,
+      "w": 116,
+      "h": 120
+    },
+    {
+      "id": "A-01",
+      "kind": "drive",
+      "label": "Acionamento 1",
+      "x": 65,
+      "y": 390,
+      "w": 142,
+      "h": 208
+    },
+    {
+      "id": "A-02",
+      "kind": "drive",
+      "label": "Acionamento 2",
+      "x": 229,
+      "y": 390,
+      "w": 142,
+      "h": 208
+    },
+    {
+      "id": "T-01",
+      "kind": "terminals",
+      "label": "Bornes demonstrativos · 12 posições",
+      "x": 65,
+      "y": 1455,
+      "w": 238,
+      "h": 68
+    }
+  ],
+  "limitations": [
+    "Geometria didática; dimensões e módulos são inventados.",
+    "Não dimensiona circuito, proteção, ventilação ou segurança.",
+    "Não liberar para fabricação ou instalação."
+  ]
+}
