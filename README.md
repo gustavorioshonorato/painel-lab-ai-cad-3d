@@ -38,4 +38,5 @@ The browser's brief parser uses simple local patterns; it does not call an LLM. 
 
 All IDs, components, sizes, and layouts in this repository are fictional. The sample DXF is an editable geometry demo, not an electrical design. Nothing here calculates cable sizes, protection, heat, safety functions, code compliance, or manufacturing readiness. Do not use it to build or install equipment.
 
-No source client drawings, tags, dimensions, vendor documents, or operational details are included. This repository has not been published. Confirm authorship and permission for every asset before public release; add a license only after rights are clear.
+No source client drawings, tags, dimensions, vendor documents, or operational details are included. Public repository: https://github.com/gustavorioshonorato/painel-lab-ai-cad-3d. Confirm authorship and permission for every asset before any further public material; add a license only after rights are clear.
+
