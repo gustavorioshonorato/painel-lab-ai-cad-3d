@@ -1,4 +1,5 @@
-﻿import json
+import json
+import xml.etree.ElementTree as ET
 import tempfile
 import unittest
 from pathlib import Path
@@ -15,6 +16,11 @@ class GeneratorTests(unittest.TestCase):
             self.assertIn("AC1009", (Path(td) / "panel_layout.dxf").read_text(encoding="ascii"))
             saved = json.loads((Path(td) / "panel_config.json").read_text(encoding="utf-8"))
             self.assertEqual(saved["counts"]["drives"], 2)
+            drawings = list((Path(td) / "drawings").glob("*.svg"))
+            self.assertEqual(len(drawings), 7)
+            self.assertIn("DIAGRAMA UNIFILAR", (Path(td) / "drawings" / "01_unifilar.svg").read_text(encoding="utf-8"))
+            for drawing in drawings:
+                ET.parse(drawing)
 
     def test_multiple_drive_rows_fit_default_enclosure(self):
         layout = build_layout({"width_mm": 900, "height_mm": 1800, "drive_count": 6, "control_count": 2, "terminal_count": 24})

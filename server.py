@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -26,7 +26,7 @@ class Handler(SimpleHTTPRequestHandler):
             config = json.loads(self.rfile.read(length).decode("utf-8"))
             result = generate(config, OUT_DIR)
             payload = {"ok": True, "layout": result["layout"], "svg": result["svg"], "summary": result["summary"],
-                       "downloads": {"json": "/outputs/panel_config.json", "svg": "/outputs/panel_layout.svg", "dxf": "/outputs/panel_layout.dxf"}}
+                       "downloads": {"json": "/outputs/panel_config.json", "svg": "/outputs/panel_layout.svg", "dxf": "/outputs/panel_layout.dxf"}, "drawings": ["/outputs/drawings/" + name for name in result["drawings"]]}
             data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
             self.send_response(200)
         except (ValueError, json.JSONDecodeError, UnicodeDecodeError) as exc:

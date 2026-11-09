@@ -8,6 +8,7 @@ outputs/
 !samples/
 !samples/panel_layout.dxf
 *.pdf
+!assets/portfolio_diagramas.pdf
 *.xlsx
 *.xlsm
 *.docx
