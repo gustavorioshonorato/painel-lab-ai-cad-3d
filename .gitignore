@@ -7,7 +7,10 @@ outputs/
 *.dxf
 !samples/
 !samples/panel_layout.dxf
+!demonstracao-sintetica/samples/
+!demonstracao-sintetica/samples/**
 *.pdf
+!demonstracao-sintetica/assets/pranchas_sinteticas.pdf
 !assets/portfolio_diagramas.pdf
 *.xlsx
 *.xlsm

@@ -1,62 +1,46 @@
-﻿# Painel Lab — AI-assisted CAD and 3D panel generator
+# Geração programática de documentação CAD e visualização 3D
 
-A local prototype about an AI-assisted engineering workflow. One structured, fictional panel model produces a 2D layout, an isometric view, an editable R12 DXF, and a seven-sheet drawing set.
+Estudo de caso anonimizado sobre automação aplicada à documentação de um painel de automação industrial.
 
-![Seven engineering sheets](assets/preview_pranchas.png)
+**[Abrir o estudo de caso](index.html)** · **[Baixar o dossiê visual em PDF](assets/portfolio_diagramas.pdf)**
 
-[Open the seven-sheet A3 PDF](assets/portfolio_diagramas.pdf)
+## O projeto
 
-## The drawing set
+O trabalho desenvolve geradores em Python para produzir desenhos CAD a partir de uma definição estruturada do arranjo. Um segundo gerador reaproveita esse layout para criar uma visualização tridimensional interativa, executada localmente no navegador com Three.js.
 
-1. Single-line power diagram
-2. Functional control and interface diagram
-3. Terminal strip and connection schedule
-4. Internal mounting layout
-5. External operator interface
-6. Isometric 3D view
-7. AI → data → CAD → 3D workflow
+O conjunto de engenharia inclui desenhos de arranjo e detalhes, diagramas de interligação, arquitetura de automação, memorial e listas técnicas. O repositório descreve o processo em nível de portfólio; não distribui arquivos do cliente.
 
-All identifiers, components, circuits, and dimensions are invented examples. The drawings demonstrate how structured data can drive multiple outputs; they are not an electrical design for construction.
+## Fluxo técnico
 
-## Run locally
+```mermaid
+flowchart LR
+    A[Dados do arranjo] --> B[Geradores em Python]
+    B --> C[Geometria 2D compartilhada]
+    C --> D[DXF · PDF · PNG]
+    C --> E[HTML · Three.js]
+    D --> F[Conferência e revisão]
+    E --> F
+    F --> A
+```
 
-Requires Python 3.10 or later. No third-party Python packages are required.
+## Limites e atribuição
+
+- O autor relata uso de IA como apoio ao desenvolvimento e à iteração das ferramentas. Os arquivos comprovam os geradores, mas não incluem histórico de prompts.
+- A IA não é apresentada como responsável pela geração automática dos desenhos. Os artefatos são produzidos pelos scripts CAD.
+- A revisão local do projeto ainda registra itens pendentes de regeneração e conferência. O material não é declarado aprovado para fabricação nem como levantamento “as built”.
+- Nomes, identificadores, tags, dimensões, folhas, fornecedores, documentos de origem e imagens do cliente foram omitidos por confidencialidade e restrição de uso indicada nos desenhos-fonte.
+
+## Laboratório demonstrativo
+
+A pasta [`demonstracao-sintetica/`](demonstracao-sintetica/) contém um protótipo independente com configuração fictícia. Ele permite experimentar geração determinística de SVG e DXF e serve para demonstrar o conceito de dados estruturados. Não é o software do projeto original, não chama um modelo de IA e não deve ser confundido com as entregas de engenharia descritas neste estudo de caso.
 
 ```powershell
+cd demonstracao-sintetica
 python server.py
 ```
 
-Open `http://127.0.0.1:8765`. The server binds to `127.0.0.1` only. Stop it with `Ctrl+C`.
+Abra `http://127.0.0.1:8765`. O protótipo usa somente a biblioteca padrão do Python.
 
-## Workflow
+## Estado do estudo
 
-1. Enter a short demo brief or change the synthetic parameters.
-2. Interpret the brief with the local demonstration parser.
-3. Generate a shared layout model.
-4. Inspect 2D, 3D, and the seven vector sheets.
-5. Download JSON, SVG, and DXF artifacts.
-
-The brief parser uses local patterns; it does not call an LLM. The source engineering project used AI during development of its generators, as reported by the author; Python/CAD scripts produce its engineering outputs. This public prototype demonstrates that generation stage with entirely synthetic data.
-
-## Technical notes
-
-- `generator.py`: validates inputs and builds layout JSON, SVG, and ASCII DXF R12.
-- `drawings.py`: generates the seven SVG engineering sheets from the shared configuration.
-- `server.py`: standard-library localhost server and JSON API.
-- `index.html` and `sheets.html`: generator interface and drawing gallery.
-- `samples/`: generated examples and the complete synthetic drawing set.
-- `tests/`: standard-library unit tests.
-
-## Tests and validation
-
-```powershell
-python -m unittest discover -s tests -v
-```
-
-The five unit tests cover input constraints, output generation, and XML validity of all seven SVG sheets. The generated DXF is R12 and opens with `ezdxf`.
-
-## Scope and rights
-
-This repository does not contain client drawings, tags, dimensions, vendor documents, or operational details. The sample layout is not reviewed for cable sizing, protection, heat, safety, code compliance, or manufacturing readiness. Do not use it to build equipment. Confirm authorship and rights before reusing any external asset.
-
-Public repository: https://github.com/gustavorioshonorato/painel-lab-ai-cad-3d
+Material preparado para portfólio e GitHub. Não constitui aprovação técnica, autorização de fabricação nem postagem em rede social.
